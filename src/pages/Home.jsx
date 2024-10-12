@@ -5,7 +5,7 @@ import BookCard from '../components/BookCard';
 import BookDetails from '../components/BookDetails';
 
 // Importing searchBooks function from API.js
-import { searchBooks } from '../services/api';  // Correct import path
+import { searchBooks } from '../services/API';  // Correct import path
 
 // Sample data for trending books
 const trendingBooks = [
