@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getBookDetails } from '../services/api';
+import { getBookDetails } from '../services/API';
 
 const BookDetails = ({ isbn, onClose }) => {
   const [details, setDetails] = useState(null);
