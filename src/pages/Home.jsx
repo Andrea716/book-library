@@ -3,9 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
 import BookCard from '../components/BookCard';
 import BookDetails from '../components/BookDetails';
+import { searchBooks } from '../services/API';
 
-// Importing searchBooks function from API.js
-import { searchBooks, getBookDetails } from '../services/api';  // Correct import path
 
 // Sample data for trending books
 const trendingBooks = [
