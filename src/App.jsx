@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import DarkModeToggle from './components/DarkModeToggle';
+import Profile from './pages/ProfilePage'; // Make sure this path is correct
 import LoginRegister from './pages/LoginRegister';
 import BookLibrary from './components/BookLibrary';
+import DarkModeToggle from './components/DarkModeToggle';
 import ErrorBoundary from './components/ErrorBoundary';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import './App.css'; // Import your CSS file
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -38,8 +40,7 @@ const App = () => {
 
           {/* Main Content */}
           <div className="content">
-            <h1>Welcome to the Book Library</h1>
-            <p>This text will switch colors between light and dark mode.</p>
+            <h1 className="welcome-title">Welcome to the Book Library</h1>
 
             {/* If the user is not logged in and hasn't skipped, show the login/register page */}
             {(!isLoggedIn && !isSkipped) ? (
@@ -47,6 +48,10 @@ const App = () => {
             ) : (
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route
+                  path="/profile"
+                  element={<Profile user={user} />} // Pass user data to Profile
+                />
                 <Route
                   path="/loginregister"
                   element={<LoginRegister onSkip={handleSkip} />}
