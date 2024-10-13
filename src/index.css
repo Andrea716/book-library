@@ -107,13 +107,33 @@ body {
   color: black;
 }
 
-/* Dark mode (white text) */
-body.dark-mode {
-  background-color: black;
-  color: white;
-}
-
 /* Ensure any specific elements (e.g., headers, paragraphs) follow the text color */
 h1, p {
   color: inherit; /* This will inherit the body text color */
+}
+
+/* Light Mode (default) */
+body {
+  background-color: white;
+  color: black;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212; /* Dark background */
+  color: white; /* Light text */
+}
+
+/* Other specific element styles (optional) */
+.dark-mode h1, .dark-mode h2, .dark-mode p {
+  color: white; /* Ensure all headings and text are white in dark mode */
+}
+
+.dark-mode a {
+  color: lightblue; /* Example: Light blue links in dark mode */
+}
+
+/* Add smooth transition for background and text color */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
