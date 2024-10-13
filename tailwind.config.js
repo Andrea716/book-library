@@ -6,7 +6,15 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        lilac: {
+          100: '#E0C2E2', // Very light lilac
+          300: '#C68CD8', // Light lilac for the button
+          400: '#B472C1', // A darker lilac for hover effect
+        },
+      },
+    },
   },
   plugins: [],
 }
