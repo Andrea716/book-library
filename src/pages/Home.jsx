@@ -5,18 +5,16 @@ import BookCard from '../components/BookCard';
 import BookDetails from '../components/BookDetails';
 import { searchBooks } from '../services/API';
 
-
 // Sample data for trending books
 const trendingBooks = [
-  { id: 1, title: "The Hidden Girl", author: "Lucinda Riley", cover: "./public/images/Hidden Girl.jpeg", isbn: ["9781234567897"] },
-  { id: 2, title: "Starts with Us", author: "Colleen Hoover", cover: "./public/images/It starts with us.jpeg", isbn: ["9782345678901"] },
-  { id: 3, title: "Highly Suspicious and Unfairly Cute", author: "Talia Hibbert", cover: "./public/images/Highly suspicious.jpeg", isbn: ["9783456789012"] },
+  { id: 1, title: "The Hidden Girl", author: "Lucinda Riley", cover: "./public/images/Hidden Girl.jpeg", isbn: ["B0CW1C78X5"] },
+  { id: 2, title: "Starts with Us", author: "Colleen Hoover", cover: "./public/images/It starts with us.jpeg", isbn: ["B09SBP5F76"] },
+  { id: 3, title: "Highly Suspicious and Unfairly Cute", author: "Talia Hibbert", cover: "./public/images/Highly suspicious.jpeg", isbn: ["B0B5W3373D"] },
   // Add more trending books...
 ];
 
 const Home = () => {
   const [books, setBooks] = useState([]);
-  const [selectedBookISBN, setSelectedBookISBN] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate(); // For navigating in the app
@@ -51,43 +49,25 @@ const Home = () => {
   const handleSelectBook = (book) => {
     const isbn = book.isbn ? book.isbn[0] : null;
     if (isbn) {
-      setSelectedBookISBN(isbn);
+      // Redirect to Amazon using the ISBN
+      const amazonUrl = `https://www.amazon.com/dp/${isbn}`;
+      window.open(amazonUrl, '_blank'); // Opens in a new tab
     } else {
       setError('ISBN not available for this book.');
     }
   };
 
-  // Function to close book details modal
-  const handleCloseDetails = () => {
-    setSelectedBookISBN(null);
-  };
-
-  // useEffect to log changes in selectedBookISBN
-  useEffect(() => {
-    if (selectedBookISBN) {
-      console.log(`Book with ISBN ${selectedBookISBN} selected`);
-    }
-  }, [selectedBookISBN]);
-
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header Section */}
       <header className="flex justify-between items-center p-4 bg-white shadow">
-        <Link to="/" className="text-xl">
-          <i className="fas fa-bars"></i>
-        </Link>
         <div className="flex-grow mx-4">
           {/* Search Bar */}
           <SearchBar onSearch={handleSearch} />
         </div>
         <div className="flex space-x-4">
           <Link to="/login">
-            <button className="text-lg">
-              <i className="fas fa-bookmark"></i>
-            </button>
-          </Link>
-          <Link to="/profile">
-            <button className="text-lg">
+            <button className="bg-lilac-300 text-white p-2 rounded flex items-center">
               <i className="fas fa-user"></i>
             </button>
           </Link>
@@ -130,28 +110,20 @@ const Home = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-black">
           {books.map((book) => (
             <BookCard
-            key={book.key} // Ensure this is unique
-            book={book}
-            onSelect={handleSelectBook}
-          />
-        ))}
+              key={book.key} // Ensure this is unique
+              book={book}
+              onSelect={handleSelectBook} // Pass the updated function
+            />
+          ))}
         </div>
       </section>
 
-      {/* Book Details Modal */}
-      {selectedBookISBN && (
-        <BookDetails isbn={selectedBookISBN} onClose={handleCloseDetails} />
-      )}
-
       {/* Bottom Navigation Bar */}
       <nav className="fixed bottom-0 left-0 right-0 bg-white shadow-lg p-4 flex justify-around">
-        <button className="text-lg" onClick={() => navigate('/')}>
+        <button className="bg-lilac-300 text-white p-2 rounded flex items-center" onClick={() => navigate('/')}>
           <i className="fas fa-home"></i>
         </button>
-        <button className="text-lg" onClick={() => navigate('/login')}>
-          <i className="fas fa-bookmark"></i>
-        </button>
-        <button className="text-lg" onClick={() => navigate('/profile')}>
+        <button className="bg-lilac-300 text-white p-2 rounded flex items-center" onClick={() => navigate('/profile')}>
           <i className="fas fa-user"></i>
         </button>
       </nav>
