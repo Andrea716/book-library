@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_BASE_URL = 'https://openlibrary.org';
 
-export const searchBooks = async (query, type = 'title') => {
+export const searchBooks = async (query, type) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/search.json`, {
       params: {
