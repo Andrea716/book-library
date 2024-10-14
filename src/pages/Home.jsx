@@ -7,9 +7,9 @@ import { searchBooks } from '../services/API';
 
 // Sample data for trending books
 const trendingBooks = [
-  { id: 1, title: "The Hidden Girl", author: "Lucinda Riley", cover: "./public/images/Hidden Girl.jpeg", isbn: ["B0CW1C78X5"] },
-  { id: 2, title: "Starts with Us", author: "Colleen Hoover", cover: "./public/images/It starts with us.jpeg", isbn: ["B09SBP5F76"] },
-  { id: 3, title: "Highly Suspicious and Unfairly Cute", author: "Talia Hibbert", cover: "./public/images/Highly suspicious.jpeg", isbn: ["B0B5W3373D"] },
+  { id: 1, title: "The Hidden Girl", author: "Lucinda Riley", cover: "./src/images/Hidden Girl.jpeg", isbn: ["B0CW1C78X5"] },
+  { id: 2, title: "Starts with Us", author: "Colleen Hoover", cover: "./src/images/It starts with us.jpeg", isbn: ["B09SBP5F76"] },
+  { id: 3, title: "Highly Suspicious and Unfairly Cute", author: "Talia Hibbert", cover: "./src/images/Highly suspicious.jpeg", isbn: ["B0B5W3373D"] },
   // Add more trending books...
 ];
 
