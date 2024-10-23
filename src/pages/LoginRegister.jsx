@@ -59,14 +59,14 @@ const LoginRegister = ({ onSkip }) => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-lilac-100"> {/* Updated to lilac color */}
       <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
-        <h1 className="text-3xl font-bold text-center mb-6">Login/Register</h1>
+        <h1 className="text-3xl font-bold text-center mb-6 text-black-force">Login/Register</h1>
         <h2 className="text-xl font-semibold text-center mb-6">
           {isRegistering ? 'Registration' : 'Login'}
         </h2>
 
         <form onSubmit={handleSubmit}>
           {isRegistering && (
-            <div className="mb-4">
+            <div className="mb-4 text-black-force">
               <label className="block mb-1 text-sm font-medium">Full Name</label>
               <input
                 type="text"
@@ -78,7 +78,7 @@ const LoginRegister = ({ onSkip }) => {
             </div>
           )}
 
-          <div className="mb-4">
+          <div className="mb-4 text-black-force">
             <label className="block mb-1 text-sm font-medium">Email</label>
             <input
               type="email"
@@ -89,7 +89,7 @@ const LoginRegister = ({ onSkip }) => {
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 text-black-force">
             <label className="block mb-1 text-sm font-medium">Password</label>
             <input
               type="password"
@@ -101,7 +101,7 @@ const LoginRegister = ({ onSkip }) => {
           </div>
 
           {isRegistering && (
-            <div className="mb-6">
+            <div className="mb-6 text-black-force">
               <label className="block mb-1 text-sm font-medium">Confirm Password</label>
               <input
                 type="password"
