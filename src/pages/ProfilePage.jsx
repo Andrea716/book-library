@@ -19,18 +19,18 @@ const Profile = ({ user }) => {
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-50 py-10">
-      <h1 className="text-4xl font-bold mb-6">User Profile</h1>
+      <h1 className="text-4xl font-bold mb-6 text-black-force">User Profile</h1>
       
-      <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-md">
+      <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-md text-black-force">
         <div className="profile-info flex flex-col items-center mb-6">
-          <img src={avatarUrl} alt="User Avatar" className="avatar w-24 h-24 rounded-full mb-4" />
-          <h2 className="text-2xl font-semibold">{user.username}</h2>
-          <p className="text-gray-600">Email: {user.email}</p>
-          <p className="text-gray-600">Total Books Owned: {booksOwned}</p>
+          <img src="https://static.vecteezy.com/system/resources/previews/014/194/216/non_2x/avatar-icon-human-a-person-s-badge-social-media-profile-symbol-the-symbol-of-a-person-vector.jpg" alt="User Avatar" className="avatar w-24 h-24 rounded-full mb-4" />
+          <h2 className="text-2xl font-semibold text-black-force">{user.username}</h2>
+          <p className="text-gray-600 text-black-force">Email: {user.email}</p>
+          <p className="text-gray-600 text-black-force">Total Books Owned: {booksOwned}</p>
         </div>
 
         <div className="favourites-section">
-          <h2 className="text-xl font-bold mb-4">Your Favourite Books</h2>
+          <h2 className="text-xl font-bold mb-4 text-black-force">Your Favourite Books</h2>
           <ul>
             {favouriteBooks.length > 0 ? (
               favouriteBooks.map((book, index) => (
@@ -46,7 +46,7 @@ const Profile = ({ user }) => {
                 </li>
               ))
             ) : (
-              <p className="text-gray-600">You have no favourite books yet.</p>
+              <p className="text-gray-600 text-black-force">You have no favourite books yet.</p>
             )}
           </ul>
         </div>
